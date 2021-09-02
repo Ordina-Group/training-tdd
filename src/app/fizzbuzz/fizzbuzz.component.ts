@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-fizzbuzz',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FizzbuzzComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
+  }
+
+  isFizzBuzz(input: number): number | string {
+    if (input % 3 === 0) return "Fizz";
+    if (input === 5) return "Buzz";
+    return input;
   }
 
 }

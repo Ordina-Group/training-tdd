@@ -24,6 +24,22 @@ describe('FizzbuzzComponent', () => {
     expect(component).toBeTruthy();
   });
 
+  it ('should return the input when not fizz or buzz', () => {
+    assertFizzBuzz(component, 1, 1);
+    assertFizzBuzz(component, 2,2);
+    assertFizzBuzz(component, 4,4);
+  })
+
+  it ('should return Fizz when given 3', () => {
+    assertFizzBuzz(component, 3, "Fizz");
+  })
+  it ('should return Buzz when given 5', () => {
+    assertFizzBuzz(component, 5, "Buzz");
+  })
+  it ('should return Fizz when given 6', () => {
+    assertFizzBuzz(component, 6, "Fizz");
+  })
+
   it ('should have a start field', () => {
     cssElementExists('input[name=start]');
   })
@@ -42,3 +58,7 @@ describe('FizzbuzzComponent', () => {
     ).toBeDefined();
   }
 });
+
+function assertFizzBuzz(component: FizzbuzzComponent, input: number, expected: number | string) {
+  expect(component.isFizzBuzz(input)).toEqual(expected);
+}
