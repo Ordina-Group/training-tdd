@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FizzbuzzComponent } from './fizzbuzz.component';
-import { By } from '@angular/platform-browser';
+import {FizzbuzzComponent} from './fizzbuzz.component';
+import {By} from '@angular/platform-browser';
 
 describe('FizzbuzzComponent', () => {
   let component: FizzbuzzComponent;
@@ -25,21 +25,20 @@ describe('FizzbuzzComponent', () => {
   });
 
   it ('should have a start field', () => {
-    expect(
-      fixture.debugElement.query(By.css('input[name=start]')).nativeElement
-    ).toBeDefined();
+    cssElementExists('input[name=start]');
   })
 
   it ('should have an end field', () => {
-    expect(
-      fixture.debugElement.query(By.css('input[name=end]')).nativeElement
-    ).toBeDefined();
+    cssElementExists('input[name=end]');
   })
 
   it ('should have a submit button', () => {
-    expect(
-      fixture.debugElement.query(By.css('button[type=submit]')).nativeElement
-    ).toBeDefined();
+    cssElementExists('button[type=submit]');
   })
 
+  function cssElementExists(selector: string) {
+    expect(
+      fixture.debugElement.query(By.css(selector)).nativeElement
+    ).toBeDefined();
+  }
 });
